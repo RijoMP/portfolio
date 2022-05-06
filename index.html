@@ -99,8 +99,8 @@
 
 				const textureFlare0 = textureLoader.load( './lensflare0.png' );
 				const textureFlare3 = textureLoader.load( './lensflare3.png' );
-				
-				const collada1 = ColladaLoader.load('./Rijo.dae', function (collada) {
+				loader = new THREE.ColladaLoader();
+        			loader.load('./Rijo.dae', function (collada) {
 
 					box = collada.scene;
 
