@@ -20,13 +20,15 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"three": "./three.module.js"
+					"three": "./three.module.js",
+					
 				}
 			}
 		</script>
 		<script type="module">
 
 			import * as THREE from 'three';
+			import ColladaLoader as THREE.ColladaLoader from '"./colladaLoader.js"';
 		
 			import Stats from './stats.module.js';
 
