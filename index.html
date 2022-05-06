@@ -95,9 +95,30 @@
 
 				// lensflares
 				const textureLoader = new THREE.TextureLoader();
+				const colladaLoader = new THREE.ColladaLoader();
 
 				const textureFlare0 = textureLoader.load( './lensflare0.png' );
 				const textureFlare3 = textureLoader.load( './lensflare3.png' );
+				
+				const collada1 = ColladaLoader.load('./Rijo.dae', function (collada) {
+
+					box = collada.scene;
+
+					box.traverse(function (child) {
+
+					    if (child instanceof THREE.SkinnedMesh) {
+
+						var animation = new THREE.Animation(child, child.geometry.animation);
+						animation.play();
+
+					    }
+					});
+
+					box.scale.x = box.scale.y = box.scale.z = .2;
+					box.updateMatrix();
+					scene.add(box);
+
+				    });
 
 				addLight( 0.55, 0.9, 0.5, 5000, 0, - 1000 );
 				addLight( 0.08, 0.8, 0.5, 0, 0, - 1000 );
